@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🩺 MediAI
+# 🩺 MediCare AI
 
 ### Personalized Healthcare & Medicine Recommendation System
 
@@ -18,10 +18,11 @@
 > **Educational prototype only.** MediAI does not provide medical diagnosis, prescribe medication, or replace advice from a qualified healthcare professional. See the [Disclaimer](#-disclaimer).
 
 ---
-
 ## 🚀 Live Demo
 
-🌐 **Try the app:** `https://personalized-healthcare-recommendation-system-e2fpxt8bw8scbjh4.streamlit.app/
+🌐 **Try the app:**
+
+[![Open MediCareAI Dashboard](https://img.shields.io/badge/🚀%20Open%20MediAI%20Dashboard-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://personalized-healthcare-recommendation-system-e2fpxt8bw8scbjh4.streamlit.app/)
 
 
 ---
