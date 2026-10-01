@@ -333,4 +333,4 @@ The application opens in your browser, by default at `http://localhost:8501`.
 
 Built with Python • Pandas • NumPy • Scikit-learn • Joblib • TF-IDF • Cosine Similarity • Streamlit
 
-</div>
+</di
