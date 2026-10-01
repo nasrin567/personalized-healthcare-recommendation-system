@@ -4,78 +4,51 @@
 
 ### Personalized Healthcare & Medicine Recommendation System
 
-*Symptom-based disease prediction, disease-wise medication information, and content-based medicine similarity, delivered through an interactive Streamlit dashboard.*
+*Symptom-based disease prediction, disease-wise medication information, and content-based medicine similarity in one interactive Streamlit dashboard.*
 
 ![Python](https://img.shields.io/badge/Python-3.9%2B-3776AB?logo=python&logoColor=white)
 ![Streamlit](https://img.shields.io/badge/Streamlit-Dashboard-FF4B4B?logo=streamlit&logoColor=white)
 ![scikit-learn](https://img.shields.io/badge/scikit--learn-ML-F7931E?logo=scikitlearn&logoColor=white)
 ![Pandas](https://img.shields.io/badge/Pandas-Data-150458?logo=pandas&logoColor=white)
 ![Status](https://img.shields.io/badge/Status-Educational%20Prototype-blue)
-![License](https://img.shields.io/badge/License-MIT-green)
 
 </div>
 
 > [!WARNING]
-> **Educational prototype only.** MediAI does **not** provide medical diagnosis, prescribe medication, or replace advice from a qualified healthcare professional. See the [Disclaimer](#-disclaimer).
+> **Educational prototype only.** MediAI does not provide medical diagnosis, prescribe medication, or replace advice from a qualified healthcare professional. See the [Disclaimer](#-disclaimer).
 
 ---
 
-## 📑 Table of Contents
+## 🚀 Live Demo
 
-- [Overview](#-overview)
-- [Key Features](#-key-features)
-- [Demo](#-demo)
-- [System Architecture](#-system-architecture)
-- [Datasets](#-datasets)
-- [Machine Learning](#-machine-learning)
-- [Dashboard Pages](#-dashboard-pages)
-- [Tech Stack](#-tech-stack)
-- [Project Structure](#-project-structure)
-- [Getting Started](#-getting-started)
-- [Development Notebooks](#-development-notebooks)
-- [Limitations](#-limitations)
-- [Future Work](#-future-work)
-- [Contributing](#-contributing)
-- [License](#-license)
-- [Disclaimer](#-disclaimer)
+🌐 **Try the app:** `<ADD_DEPLOYMENT_URL_HERE>`
+
+📦 **Source code:** `<ADD_GITHUB_REPOSITORY_URL_HERE>`
 
 ---
 
 ## 📖 Overview
 
-**MediAI** is a machine learning application that brings together three components in one Streamlit dashboard:
+**MediAI** is an educational and informational machine learning application that combines disease prediction, disease-wise medication information, patient-profile analysis support, and content-based medicine similarity into a single Streamlit dashboard.
 
-1. **Disease prediction** from 132 binary symptom features using a saved Linear SVC model.
-2. **Disease-wise medication information** retrieved from a provided medication dataset.
-3. **Content-based medicine similarity** using TF-IDF and cosine similarity over 11,825 medicine records.
+The system allows a user to:
 
-The project demonstrates the full workflow from data inspection and preprocessing, through model training and evaluation, to deployment as an interactive web application, while documenting data-quality issues and limitations transparently.
-
----
-
-## ✨ Key Features
-
-| Feature | Description |
-|---|---|
-| 🔍 **Symptom-based prediction** | Searchable selection across the 132 symptom features used by the trained model |
-| 📈 **Confidence reporting** | Predicted disease with model confidence and top model probabilities |
-| 💊 **Medication information** | Disease-wise medication details from `medications.csv` |
-| 🧬 **Medicine similarity** | Top-N textually similar medicine profiles with similarity scores |
-| 🧾 **Patient profile summary** | Profile fields captured and summarized alongside results |
-| 📊 **Project overview page** | Architecture, dataset roles, data-quality observations, and limitations |
-| ⚖️ **Responsible design** | Disclaimers and limitations surfaced throughout the application |
+- Select symptoms from the 132 symptom features used by the trained disease model.
+- Predict a disease using a saved Linear SVC model.
+- View disease-wise medication information from the provided medication dataset.
+- Explore similar medicine profiles using TF-IDF and cosine similarity.
+- Understand the datasets, machine learning pipeline, and project limitations through an interactive dashboard.
 
 ---
 
-## 🎬 Demo
+## 🎯 Project Objectives
 
-<!-- Replace the placeholders below with real screenshots or a GIF -->
-
-| Diagnosis | Medicine Similarity |
-|---|---|
-| ![Diagnosis page](docs/images/diagnosis.png) | ![Similarity page](docs/images/similarity.png) |
-
-> 🌐 **Live app:** `<ADD_DEPLOYMENT_URL_HERE>`
+1. Build a machine learning model for disease prediction from symptom features.
+2. Connect predicted diseases with disease-wise medication information.
+3. Develop a content-based medicine similarity system.
+4. Build an interactive Streamlit dashboard around the developed ML components.
+5. Demonstrate the complete workflow from data preprocessing to deployment.
+6. Clearly document limitations and data-quality issues in the provided datasets.
 
 ---
 
@@ -104,9 +77,9 @@ flowchart TD
 
 ---
 
-## 📊 Datasets
+## 📊 Dataset Information
 
-The project uses four datasets, each with a distinct and separate role.
+The project uses four datasets, each with a separate role.
 
 | Dataset | Purpose | Records |
 |---|---|---:|
@@ -121,21 +94,21 @@ The project uses four datasets, each with a distinct and separate role.
 ### `Training.csv`
 - 4,920 records, 132 binary symptom features (`0` / `1`)
 - Target column: `prognosis` (41 disease classes)
-- The saved model uses these same 132 features
+- The saved disease prediction model uses the same 132 symptom features
 
 ### `medications.csv`
-- Disease-wise medication information, used after prediction
-- Contains **no** patient-level outcomes or dosage information, so the application does not learn or prescribe an optimal medication for an individual
+- Disease-wise medication information, retrieved after disease prediction
+- Contains **no** patient-level medication outcomes or dosage information, so the application does not learn or prescribe an optimal medication for an individual
 
 ### `Cleaned_Dataset.csv`
-- Fields include age, gender, blood pressure, cholesterol level, disease, risk level, and an outcome variable
+- Patient-profile and risk-related fields: age, gender, blood pressure, cholesterol level, disease, risk level, outcome variable
 - Used only as supporting patient-profile / risk-analysis data
-- **Intentionally not merged** with `Training.csv`, because the records do not represent the same patient-level observations
+- **Not merged** with `Training.csv`, because the records do not represent the same patient-level observations
 
 ### `Medicine_Details.csv`
-- Fields include medicine name, composition, uses, side effects, manufacturer, review percentages, and image URL
+- Medicine name, composition, uses, side effects, manufacturer, review percentages, image URL
 - Similarity uses only: **Medicine Name, Composition, Uses, Side effects**
-- Review percentages are **not** used to judge effectiveness or rank medicines
+- Review percentages are not used to determine medical effectiveness or to rank medicines
 
 </details>
 
@@ -156,51 +129,94 @@ The project uses four datasets, each with a distinct and separate role.
 
 ### Model Evaluation
 
-On the provided dataset and split:
+On the provided dataset and evaluation setup:
 
 - **Test accuracy:** 100%
-- **Precision / Recall / F1:** 1.00 across evaluated classes
+- **Precision / Recall / F1:** 1.00 across the evaluated classes
 
 > [!IMPORTANT]
-> These results are **not** real-world diagnostic accuracy. `Training.csv` has 4,920 rows but only **304 unique rows** after removing exact duplicates. Identical records can therefore appear in both the training and test splits, which inflates the measured performance. Treat the figures as performance on this dataset and split only.
-
-### Medicine Similarity
-
-Content-based filtering over a combined text profile:
-
-```text
-Medicine Name + Composition + Uses + Side effects
-        ↓  TF-IDF
-Numerical vectors
-        ↓  Cosine similarity
-Ranked similar medicine profiles
-```
-
-A higher score indicates greater **textual** similarity. It does **not** imply clinical equivalence, equal effectiveness, equal safety, interchangeability, or suitability for a particular patient.
+> These results should **not** be interpreted as real-world diagnostic accuracy. `Training.csv` contains 4,920 rows but only **304 unique rows** after removing exact duplicates. Identical records can appear in both training and test splits, which inflates the measured performance. The figures reflect performance on the provided dataset and split, not clinical diagnostic performance.
 
 ---
 
-## 🖥️ Dashboard Pages
+## 💊 Medication Information
+
+After disease prediction, the application looks up the predicted disease in `medications.csv` and displays the medication information available for it.
+
+```mermaid
+flowchart LR
+    A[Predicted Disease] --> B[(medications.csv)] --> C[Medication Information]
+```
+
+The system does **not**:
+
+- Prescribe medication
+- Provide dosage instructions
+- Determine an optimal medicine
+- Use patient-level treatment outcomes
+- Replace professional medical advice
+
+---
+
+## 🔎 Medicine Similarity
+
+The medicine similarity component uses a **content-based filtering** approach.
+
+The text fields **Medicine Name, Composition, Uses, and Side effects** are combined, converted to numerical vectors with **TF-IDF**, and compared with **cosine similarity**.
+
+```mermaid
+flowchart LR
+    A[Selected Medicine] --> B[Text Profile] --> C[TF-IDF Vector] --> D[Cosine Similarity] --> E[Top Similar Medicines]
+```
+
+A higher score indicates greater **textual similarity** between medicine records. It does **not** mean:
+
+- Clinical equivalence
+- Equal effectiveness
+- Equal safety
+- Interchangeability
+- Suitability for a particular patient
+
+---
+
+## 🖥️ Streamlit Dashboard
+
+The final application is built with **Streamlit** and custom CSS.
 
 | Page | What it provides |
 |---|---|
-| 🏠 **Diagnosis** | Patient profile fields, searchable symptom selection (132 features), selected-symptom counter, disease prediction, model confidence, top model probabilities, profile summary, disease-wise medication information, medical disclaimer |
-| 💊 **Medicine Similarity** | Medicine selection, configurable number of results, similarity scores, composition, uses, and side effects |
-| 📊 **Project Overview** | Architecture, dataset roles, class/feature/record counts, ML components, data-quality observations, limitations |
-| ℹ️ **About** | Objectives, technologies, educational purpose, and limitations |
+| 🏠 **Diagnosis** | Patient profile fields, searchable symptom selection (132 features), selected-symptom counter, disease prediction, model confidence, top model probabilities, patient profile summary, disease-wise medication information, medical disclaimer |
+| 💊 **Medicine Similarity** | Medicine selection, number of similar medicines, textual similarity scores, composition, uses, side effects |
+| 📊 **Project Overview** | System architecture, dataset roles, number of disease classes, symptom features, medicine records, ML components, data-quality observations, limitations |
+| ℹ️ **About** | Project objective, disease prediction, medication information, medicine similarity, technologies, educational purpose and limitations |
 
 ---
 
-## 🛠️ Tech Stack
+## 📸 Dashboard Preview
+
+<!-- Add screenshots to docs/images/ and update the file names below -->
+
+### Diagnosis
+![Diagnosis page](docs/images/diagnosis.png)
+
+### Medicine Similarity
+![Medicine Similarity page](docs/images/similarity.png)
+
+### Project Overview
+![Project Overview page](docs/images/overview.png)
+
+---
+
+## 🛠️ Technologies
 
 | Category | Tools |
 |---|---|
-| Language | Python |
+| Programming language | Python |
 | Data analysis | Pandas, NumPy |
-| Machine learning | Scikit-learn (Linear SVC, LabelEncoder) |
-| Text similarity | TF-IDF Vectorizer, Cosine Similarity |
+| Machine learning | Scikit-learn, Support Vector Classifier (Linear SVC), LabelEncoder |
+| Medicine similarity | TF-IDF Vectorizer, Cosine Similarity |
 | Model persistence | Joblib |
-| Dashboard | Streamlit, custom CSS |
+| Dashboard | Streamlit, Custom CSS |
 | Development | Jupyter Notebook, VS Code, Git, GitHub |
 
 ---
@@ -233,115 +249,70 @@ personalized-healthcare-recommendation-system/
 └── .gitignore
 ```
 
----
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-- Python 3.9 or higher
-- `pip`
-- Git
-
-### Installation
-
-```bash
-# 1. Clone the repository
-git clone <YOUR_GITHUB_REPOSITORY_URL>
-cd personalized-healthcare-recommendation-system
-
-# 2. Create a virtual environment
-python -m venv .venv
-
-# 3. Activate it
-# Windows
-.venv\Scripts\activate
-# macOS / Linux
-source .venv/bin/activate
-
-# 4. Install dependencies
-pip install -r requirements.txt
-```
-
-### Run the Application
-
-```bash
-python -m streamlit run app.py
-```
-
-The app opens in your browser, by default at `http://localhost:8501`.
-
-### Troubleshooting
-
-| Problem | Fix |
-|---|---|
-| `streamlit` command not found | Use `python -m streamlit run app.py` with the virtual environment activated |
-| Model file not found | Confirm `models/best_model.pkl` and `models/disease_encoder.pkl` exist |
-| Dataset file not found | Confirm all four CSV files are inside `data/` |
-| Version mismatch when loading the model | Install the scikit-learn version pinned in `requirements.txt` |
-
----
-
-## 📓 Development Notebooks
+### Development Stages
 
 | Notebook | Purpose |
 |---|---|
 | `01_Data_Inspection` | Dataset structure, data types, missing values, duplicates, symptom features, disease distribution |
 | `02_Disease_Prediction` | Model training and evaluation on `Training.csv` |
-| `03_Medicine_Recommendation` | Connecting predictions to disease-wise medication data |
-| `04_Final_Evaluation` | End-to-end evaluation of prediction and medication pipeline |
-| `05_Medicine_Similarity` | TF-IDF and cosine-similarity medicine matching |
+| `03_Medicine_Recommendation` | Connecting disease prediction to disease-wise medication data |
+| `04_Final_Evaluation` | Evaluating the complete prediction and medication-information pipeline |
+| `05_Medicine_Similarity` | Building the TF-IDF and cosine-similarity system |
 
-The notebooks are development and analysis artifacts. The user-facing interface is `app.py`.
+The notebooks are development and analysis artifacts; the final interface is the Streamlit app in `app.py`.
+
+---
+
+## ▶️ How to Run
+
+**Prerequisites:** Python 3.9+, `pip`, Git.
+
+```bash
+# 1. Clone the repository
+git clone <YOUR_GITHUB_REPOSITORY_URL>
+
+# 2. Open the project
+cd personalized-healthcare-recommendation-system
+
+# 3. Create a virtual environment
+python -m venv .venv
+
+# 4. Activate the environment
+# Windows
+.venv\Scripts\activate
+# macOS / Linux
+source .venv/bin/activate
+
+# 5. Install dependencies
+pip install -r requirements.txt
+
+# 6. Run the Streamlit application
+python -m streamlit run app.py
+```
+
+The application opens in your browser, by default at `http://localhost:8501`.
 
 ---
 
 ## ⚠️ Limitations
 
-**Dataset**
-- `Training.csv` contains many duplicate records, so the 100% accuracy is likely inflated by train/test overlap.
-- Performance applies only to the provided dataset and evaluation setup.
+**Dataset limitations**
+- `Training.csv` contains many duplicate records.
+- The reported 100% accuracy may be inflated because duplicates can appear across training and test splits.
+- Model performance applies only to the provided dataset and evaluation setup, not to real-world diagnosis.
 
-**Medication**
-- `medications.csv` is disease-level only, with no patient-level outcomes.
-- The system cannot learn an optimal medication for an individual and gives no dosage instructions.
+**Medication limitations**
+- `medications.csv` provides disease-wise information only, with no patient-level outcomes.
+- It does not support learning the optimal medication for an individual.
+- The application does not provide dosage instructions.
 
-**Medicine similarity**
-- Similarity is purely textual and does not establish clinical equivalence, safety, or effectiveness.
-- Similar medicines must not be treated as interchangeable.
+**Medicine similarity limitations**
+- Similarity is based on textual information.
+- It does not establish clinical equivalence, safety, or effectiveness.
+- Similar medicines should not be considered automatically interchangeable.
 
 **Dataset separation**
-- `Cleaned_Dataset.csv` and `Training.csv` differ in structure and purpose, so their records are deliberately not merged.
-
----
-
-## 🗺️ Future Work
-
-- [ ] Deduplicate `Training.csv` and re-evaluate with a leakage-free split (e.g., stratified k-fold on unique rows)
-- [ ] Compare additional models and report calibrated probabilities
-- [ ] Add a larger, real-world symptom dataset for more realistic evaluation
-- [ ] Add unit tests and CI (GitHub Actions)
-- [ ] Containerize with Docker for reproducible deployment
-- [ ] Improve similarity with embeddings alongside TF-IDF
-
----
-
-## 🤝 Contributing
-
-Contributions, issues, and suggestions are welcome.
-
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature/your-feature`
-3. Commit your changes: `git commit -m "Add your feature"`
-4. Push the branch: `git push origin feature/your-feature`
-5. Open a Pull Request
-
----
-
-## 📄 License
-
-Distributed under the MIT License. See [`LICENSE`](LICENSE) for details.
-<!-- Replace with your chosen license and add a LICENSE file. -->
+- `Cleaned_Dataset.csv` and `Training.csv` have different structures and purposes, so their patient records are deliberately not merged.
 
 ---
 
@@ -350,11 +321,9 @@ Distributed under the MIT License. See [`LICENSE`](LICENSE) for details.
 > **This system is intended for educational and informational purposes only.**
 >
 > - It does not provide medical diagnosis, prescribe medication, or replace advice from a qualified healthcare professional.
-> - Disease predictions are based solely on the provided machine learning dataset.
+> - Disease prediction results are based on the provided machine learning dataset.
 > - Medication information is retrieved from the provided disease-wise dataset.
 > - Medicine similarity represents textual similarity and does not imply clinical equivalence or interchangeability.
->
-> Always consult a licensed healthcare professional for medical concerns.
 
 ---
 
