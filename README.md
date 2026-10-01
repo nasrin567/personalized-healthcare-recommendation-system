@@ -189,19 +189,27 @@ The final application is built with **Streamlit** and custom CSS.
 | ℹ️ **About** | Project objective, disease prediction, medication information, medicine similarity, technologies, educational purpose and limitations |
 
 ---
-
 ## 📸 Dashboard Preview
 
-<!-- Add screenshots to docs/images/ and update the file names below -->
+### 🩺 Diagnosis
+The Diagnosis dashboard allows users to select symptoms and patient details to predict the most likely disease using the trained machine learning model. It also displays model confidence and corresponding medication information.
 
-### Diagnosis
-![Diagnosis page](docs/images/diagnosis.png)
+![MediAI Diagnosis Dashboard](images/diagnosis.png)
 
-### Medicine Similarity
-![Medicine Similarity page](docs/images/similarity.png)
+### 💊 Medicine Similarity
+The Medicine Similarity dashboard recommends medicines with similar textual information based on composition, uses, and side effects. Similarity scores are calculated using TF-IDF and cosine similarity.
 
-### Project Overview
-![Project Overview page](docs/images/overview.png)
+![MediAI Medicine Similarity Dashboard](images/medicine_similarity.png)
+
+### 📊 Project Overview
+The Project Overview dashboard presents the system architecture, datasets, machine learning components, and the overall workflow of the MediAI system.
+
+![MediAI Project Overview Dashboard](images/project_overview.png)
+
+### ℹ️ About
+The About page provides a concise overview of MediAI, including its objective, key technologies, major components, and important project limitations.
+
+![MediAI About Dashboard](images/about.png)
 
 ---
 
