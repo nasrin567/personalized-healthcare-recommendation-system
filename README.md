@@ -21,9 +21,8 @@
 
 ## 🚀 Live Demo
 
-🌐 **Try the app:** `<ADD_DEPLOYMENT_URL_HERE>`
+🌐 **Try the app:** `<>https://personalized-healthcare-recommendation-system-e2fpxt8bw8scbjh4.streamlit.app/`
 
-📦 **Source code:** `<ADD_GITHUB_REPOSITORY_URL_HERE>`
 
 ---
 
