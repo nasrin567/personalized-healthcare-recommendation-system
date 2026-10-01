@@ -4,8 +4,6 @@
 
 ### Personalized Healthcare & Medicine Recommendation System
 
-*Symptom-based disease prediction, disease-wise medication information, and content-based medicine similarity in one interactive Streamlit dashboard.*
-
 ![Python](https://img.shields.io/badge/Python-3.9%2B-3776AB?logo=python&logoColor=white)
 ![Streamlit](https://img.shields.io/badge/Streamlit-Dashboard-FF4B4B?logo=streamlit&logoColor=white)
 ![scikit-learn](https://img.shields.io/badge/scikit--learn-ML-F7931E?logo=scikitlearn&logoColor=white)
