@@ -21,7 +21,7 @@
 
 ## 🚀 Live Demo
 
-🌐 **Try the app:** `<https://personalized-healthcare-recommendation-system-e2fpxt8bw8scbjh4.streamlit.app/`>
+🌐 **Try the app:** `https://personalized-healthcare-recommendation-system-e2fpxt8bw8scbjh4.streamlit.app/
 
 
 ---
